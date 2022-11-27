@@ -15,12 +15,7 @@ public class Main {
     p.addTakeaway();
     System.out.println(p.getBill());
 
-    DeluxePizza dp1 = new DeluxePizza(true);
-    //System.out.println(dp.getPrice());
-    dp1.addTakeaway();
-    dp1.addExtraCheese();
-    dp1.addTakeaway();
-    System.out.println(dp1.getBill());
+
 
   }
 }
