@@ -7,15 +7,12 @@ public class Pizza {
     private String bill="";
     private int extraToppings;
     private int extraCheese=80;
-    private int paperBag;
+    private int paperBag=20;
 
-    private int basePrice;
-    private boolean isExtraCheeseAdded=false;
-    private boolean isExtraToppingsAdded = false;
-    private boolean isTakeaway = false;
     boolean visitedExtraCheese =false;
     boolean visitedExtraToppings =false;
     boolean visitedExtraBag =false;
+
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
         if(isVeg)
@@ -23,25 +20,23 @@ public class Pizza {
         else
             price=400;
 
-        basePrice=price;
-        // your code goes here
+        bill+="Base Price Of The Pizza: "+price+ "\n";
     }
 
     public int getPrice(){
-        return this.basePrice;
+        return this.price;
     }
 
     public void addExtraCheese() {
         if (!visitedExtraCheese) {
-            isExtraCheeseAdded = true;
             visitedExtraCheese = true;
             price += extraCheese;
+            bill += "Extra Cheese Added: "+ extraCheese + "\n";
         }
     }
 
     public void addExtraToppings() {
         if (!visitedExtraToppings) {
-            isExtraToppingsAdded = true;
             visitedExtraToppings = true;
             if (isVeg == true)
                 extraToppings = 70;
@@ -49,36 +44,20 @@ public class Pizza {
                 extraToppings = 120;
 
             price += extraToppings;
-            // your code goes here
+            bill += "Extra Toppings Added: "+ extraToppings + "\n";
+
         }
     }
     public void addTakeaway(){
        if(!visitedExtraBag) {
-           isTakeaway = true;
            visitedExtraBag=true;
-           paperBag += 20;
+           price+=paperBag;
+           bill += "Paperbag Added: "+ paperBag+"\n";
        }
     }
 
     public String getBill(){
-        // your code goes here
-
-
-        bill+="Base Price Of The Pizza: "+basePrice+ "\n";
-       if(isExtraCheeseAdded) {
-          bill += "Extra Cheese Added: "+ extraCheese + "\n";
-       }
-
-        if(isExtraToppingsAdded) {
-           bill += "Extra Toppings Added: "+ extraToppings + "\n";
-        }
-        if(isTakeaway) {
-            bill += "Paperbag Added: "+ paperBag+"\n";
-            price+=paperBag;
-
-        }
-
-        bill+= "Total Price: "+price;
-        return this.bill; //+=price;
+       bill+= "Total Price: "+price;
+        return this.bill;
     }
 }
