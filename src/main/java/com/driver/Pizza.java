@@ -13,8 +13,9 @@ public class Pizza {
     private boolean isExtraCheeseAdded=false;
     private boolean isExtraToppingsAdded = false;
     private boolean isTakeaway = false;
-
-
+    boolean visitedExtraCheese =false;
+    boolean visitedExtraToppings =false;
+    boolean visitedExtraBag =false;
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
         if(isVeg)
@@ -30,27 +31,33 @@ public class Pizza {
         return this.basePrice;
     }
 
-    public void addExtraCheese(){
-       isExtraCheeseAdded=true;
-        price += extraCheese;
-
+    public void addExtraCheese() {
+        if (!visitedExtraCheese) {
+            isExtraCheeseAdded = true;
+            visitedExtraCheese = true;
+            price += extraCheese;
+        }
     }
 
-    public void addExtraToppings(){
-        isExtraToppingsAdded=true;
-        if(isVeg==true)
-            extraToppings=70;
-        else
-            extraToppings=120;
+    public void addExtraToppings() {
+        if (!visitedExtraToppings) {
+            isExtraToppingsAdded = true;
+            visitedExtraToppings = true;
+            if (isVeg == true)
+                extraToppings = 70;
+            else
+                extraToppings = 120;
 
-        price += extraToppings;
-        // your code goes here
+            price += extraToppings;
+            // your code goes here
+        }
     }
-
     public void addTakeaway(){
-      isTakeaway=true;
-      paperBag+=20;
-
+       if(!visitedExtraBag) {
+           isTakeaway = true;
+           visitedExtraBag=true;
+           paperBag += 20;
+       }
     }
 
     public String getBill(){
