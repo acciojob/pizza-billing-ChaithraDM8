@@ -50,21 +50,21 @@ public class Pizza {
         // your code goes here
 
 
-        //bill+="Base Price Of The Pizza: "+basePrice+ "\n";
+        bill+="Base Price Of The Pizza: "+basePrice+ "\n";
        if(isExtraCheeseAdded) {
-          // bill += "Extra Cheese Added: " + extraCheese + "\n";
+          bill += "Extra Cheese Added: " + extraCheese + "\n";
            price += extraCheese;
        }
 
         if(isExtraToppingsAdded) {
-            //bill += "Extra Toppings Added: " + extraToppings + "\n";
+           bill += "Extra Toppings Added: " + extraToppings + "\n";
             price += extraToppings;
         }
         if(isTakeaway) {
-            //bill += "Paperbag Added: 20"  + "\n";
+            bill += "Paperbag Added: 20"  + "\n";
             price += 20;
         }
-        //bill+= "Total Price: "+price;
-        return this.bill+=price;
+        bill+= "Total Price: "+price;
+        return this.bill;//+=price;
     }
 }
